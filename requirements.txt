@@ -1,0 +1,3 @@
+requests
+apistar==0.1.17
+beautifulsoup4
