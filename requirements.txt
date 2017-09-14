@@ -1,4 +1,6 @@
-requests
-apistar==0.1.17
-beautifulsoup4
-tweepy
+requests==2.18.4
+apistar==0.2.14
+beautifulsoup4==4.6.0
+tweepy==3.5.0
+zappa==0.43.2
+awscli==1.11.152

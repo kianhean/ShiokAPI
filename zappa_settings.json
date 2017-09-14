@@ -1,0 +1,11 @@
+{
+    "dev": {
+        "app_function": "app.app",
+        "aws_region": "ap-southeast-1",
+        "s3_bucket": "zappa-shiokapi",
+        "profile_name": "default",
+        "keep_warm": false,
+        "apigateway_description": "Shioktoy on AWS API Gateway",
+        "lambda_description": "ShiokBot on AWS Lambda"
+    }
+}
