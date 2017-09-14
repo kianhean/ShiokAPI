@@ -1,5 +1,7 @@
 from promos import api as promo_api
 from draws import api as draw_api
+from train_alert import api as train_api
+
 
 # Testing Promo APIs
 
@@ -14,6 +16,8 @@ def test_promo_loop():
     assert len(result) > 20
 
 
+# Testing Draw API
+
 def test_FourD():
     result = draw_api.FourD()
     assert len(result) > 100
@@ -22,3 +26,12 @@ def test_FourD():
 def test_TOTO():
     result = draw_api.TOTO()
     assert len(result) > 100
+
+# Testing Train Alert API
+
+def test_train_alert():
+    result = train_api.connect_twitter_api()
+    assert len(result) == 5
+
+    result = train_api.connect_twitter_api("@SBSTransit_Ltd")
+    assert len(result) == 5

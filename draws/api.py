@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 
 def FourD():
-    """4D Methods!"""
+    """ 4D Results! """
 
     # Connect to Source
     url = 'https://www.gidapp.com/lottery/singapore/4d'
@@ -45,7 +45,7 @@ def FourD():
 
 
 def TOTO():
-    """TOTO Methods!"""
+    """ TOTO Results! """
 
     # Connect to Source
     url = 'https://www.gidapp.com/lottery/singapore/toto'
