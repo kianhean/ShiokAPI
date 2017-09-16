@@ -10,10 +10,10 @@ config = configparser.ConfigParser()
 config.sections()
 config.read('./enviroment.ini')
 
-consumer_key = config['development']['consumer_key']
-consumer_secret = config['development']['consumer_secret']
-access_token = config['development']['access_token']
-access_token_secret = config['development']['access_token_secret']
+consumer_key = config['development']['consumer_key_twitter']
+consumer_secret = config['development']['consumer_secret_twitter']
+access_token = config['development']['access_token_twitter']
+access_token_secret = config['development']['access_token_secret_twitter']
 
 
 def connect_twitter_api(provider='@SMRT_Singapore'):
