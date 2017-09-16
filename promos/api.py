@@ -1,6 +1,8 @@
+"""api.py: Getting and displaying promo codes"""
+
 from urllib.request import urlopen
-from bs4 import BeautifulSoup
 import json
+from bs4 import BeautifulSoup
 
 
 def bann(code):
@@ -69,7 +71,8 @@ def promo_loop(promo_list: str):
     Parameters
     ----------
     promo_list : string
-        promo_list to scrape in a dict as a string. Example {"uber":"https://www.couponese.com/store/uber.com/"}
+        promo_list to scrape in a dict as a string. 
+        Example {"uber":"https://www.couponese.com/store/uber.com/"}
     """
 
     final = ''
