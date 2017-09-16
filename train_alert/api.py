@@ -1,9 +1,9 @@
-from __future__ import unicode_literals
-import tweepy
-from datetime import datetime, timedelta
-import os
+"""api.py: Getting and displaying train breakdowns"""
 
+from __future__ import unicode_literals
+from datetime import timedelta
 import configparser
+import tweepy
 
 # Set Keys from Config
 config = configparser.ConfigParser()
@@ -18,7 +18,7 @@ access_token_secret = config['development']['access_token_secret_twitter']
 
 def connect_twitter_api(provider='@SMRT_Singapore'):
     """ Connect to Twitter API and Get Result """
-    
+
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
 

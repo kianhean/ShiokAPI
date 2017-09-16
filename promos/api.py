@@ -71,7 +71,7 @@ def promo_loop(promo_list: str):
     Parameters
     ----------
     promo_list : string
-        promo_list to scrape in a dict as a string. 
+        promo_list to scrape in a dict as a string.
         Example {"uber":"https://www.couponese.com/store/uber.com/"}
     """
 
