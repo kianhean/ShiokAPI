@@ -7,6 +7,7 @@ from apistar.handlers import docs_urls, static_urls
 from promos import api as promo_api
 from draws import api as draw_api
 from train_alert import api as train_api
+from gov import api as gov_api
 
 
 routes = [
@@ -17,6 +18,9 @@ routes = [
     Route('/drawtoto', 'GET', draw_api.TOTO),
 
     Route('/trainall', 'GET', train_api.all_breakdowns),
+
+    Route('/psi', 'GET', gov_api.psi3hour_get),
+    Route('/weather', 'GET', gov_api.weathernow_get),
 
     Include('/docs', docs_urls),
     Include('/static', static_urls)
