@@ -1,3 +1,5 @@
+"""app.py: Entry point for apistar app"""
+
 from apistar import Include, Route
 from apistar.frameworks.wsgi import WSGIApp as App
 from apistar.handlers import docs_urls, static_urls
@@ -7,13 +9,7 @@ from draws import api as draw_api
 from train_alert import api as train_api
 
 
-def welcome():
-    """ Welcome Message """
-    return {'message': 'Welcome to ShiokAPI!'}
-
-
 routes = [
-    Route('/', 'GET', welcome),
     Route('/promo', 'GET', promo_api.get_promos),
     Route('/promolist', 'GET', promo_api.promo_loop),
     Route('/draw4d', 'GET', draw_api.FourD),
