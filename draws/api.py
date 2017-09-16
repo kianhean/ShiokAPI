@@ -1,4 +1,4 @@
-""" Lucky Draw Methods """
+""" api.py Lucky Draw Methods """
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
