@@ -1,5 +1,5 @@
 requests==2.18.4
-apistar==0.2.14
+apistar==0.3.9
 beautifulsoup4==4.6.0
 tweepy==3.5.0
 zappa==0.43.2

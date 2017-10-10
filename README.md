@@ -8,7 +8,7 @@ source shiokapi/bin/activate
 deactivate
 
 ### Run API
-apistar runs
+apistar run
 
 ### Run Tests
 apistar test
