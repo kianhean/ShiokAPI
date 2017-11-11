@@ -20,7 +20,7 @@ access_token_secret = config['development']['access_token_secret_twitter']
 
 
 def weather_get():
-    """ Get Latest Weather Map """
+    """ Get Latest Weather Map From @SGWeatherToday """
     username = "@SGWeatherToday"
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
