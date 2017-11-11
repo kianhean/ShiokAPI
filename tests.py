@@ -20,12 +20,25 @@ def test_promo_loop():
 
 def test_FourD():
     result = draw_api.FourD()
+
+    # Checking Length of Result
     assert len(result) > 100
+
+    # Checking Basic Struture of Response
+    assert "Consolation Prizes" in result
+    assert "Special/Starter Prizes" in result
+    assert "1st -" in result
 
 
 def test_TOTO():
     result = draw_api.TOTO()
+
+    # Checking Length of Result
     assert len(result) > 100
+
+    # Checking Basic Struture of Response
+    assert "Winning Numbers" in result
+    assert "Bonus" in result
 
 # Testing Train Alert API
 
