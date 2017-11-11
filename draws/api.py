@@ -44,7 +44,7 @@ def FourD():
     return chat_reply
 
 
-def TOTO():
+def Toto():
     """ TOTO Results! """
 
     # Connect to Source

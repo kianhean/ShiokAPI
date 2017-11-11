@@ -31,7 +31,7 @@ def test_FourD():
 
 
 def test_TOTO():
-    result = draw_api.TOTO()
+    result = draw_api.Toto()
 
     # Checking Length of Result
     assert len(result) > 100

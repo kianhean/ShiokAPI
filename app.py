@@ -15,7 +15,7 @@ routes = [
     Route('/promolist', 'GET', promo_api.promo_loop),
 
     Route('/draw4d', 'GET', draw_api.FourD),
-    Route('/drawtoto', 'GET', draw_api.TOTO),
+    Route('/drawtoto', 'GET', draw_api.Toto),
 
     Route('/trainall', 'GET', train_api.all_breakdowns),
 
