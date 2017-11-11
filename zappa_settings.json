@@ -5,7 +5,7 @@
         "s3_bucket": "zappa-shiokapi",
         "profile_name": "default",
         "keep_warm": false,
-        "apigateway_description": "Shioktoy on AWS API Gateway",
-        "lambda_description": "ShiokBot on AWS Lambda"
+        "apigateway_description": "ShiokAPI on AWS API Gateway",
+        "lambda_description": "ShiokAPI on AWS Lambda"
     }
 }
