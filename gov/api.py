@@ -5,6 +5,35 @@ import configparser
 import json
 import requests
 
+import configparser
+import tweepy
+
+# Set Keys from Config
+config = configparser.ConfigParser()
+config.sections()
+config.read('./enviroment.ini')
+
+consumer_key = config['development']['consumer_key_twitter']
+consumer_secret = config['development']['consumer_secret_twitter']
+access_token = config['development']['access_token_twitter']
+access_token_secret = config['development']['access_token_secret_twitter']
+
+
+def weather_get():
+    """ Get Latest Weather Map """
+    username = "@SGWeatherToday"
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+
+    result = tweepy.API(auth).user_timeline(username, count=15)
+    final = []
+
+    for tweet in result:
+        if 'Weather Radar Update' in tweet.text and 'media' in tweet.entities:
+            final.append(tweet.entities['media'][0]['media_url_https'])
+
+    return final[0]
+
 
 def connnect_gov_api(url_string):
     """ Conntect to Gov and return request object """

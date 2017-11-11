@@ -1,7 +1,7 @@
 from promos import api as promo_api
 from draws import api as draw_api
 from train_alert import api as train_api
-
+from gov import api as gov_api
 
 # Testing Promo APIs
 
@@ -48,3 +48,9 @@ def test_train_alert():
 
     result = train_api.connect_twitter_api("@SBSTransit_Ltd")
     assert len(result) == 5
+
+# Testing Weather API
+
+def test_weathermap():
+    result = gov_api.weather_get()
+    assert "https://pbs.twimg.com/media/" in result
