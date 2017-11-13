@@ -57,8 +57,14 @@ def weather_warning_get():
     if len(final) == 0:
         return "No Warnings!"
     else:
-        text_ = "<b> Heavy Rain Warning </b>/n"
-        return text_ + final[0].replace("#sgflood", "")
+        text_ = "<b>Heavy Rain Warning</b>\n"
+        final_text = ""
+        for _ in final:
+            _date = _.split('Issued')[1].replace("hours.","").replace(":","") + "H"
+            _ = _.split('Issued')[0]
+            _ = _.replace('NEA', '[NEA@' + _date.replace(" ","") + ']')
+            final_text += _.split('Issued')[0] + "\n"
+        return text_ + final_text.replace("#sgflood", "")
 
 
 def connnect_gov_api(url_string):
