@@ -23,6 +23,7 @@ routes = [
     Route('/weather', 'GET', gov_api.weathernow_get),
     Route('/weathermap', 'GET', gov_api.weather_get),
     Route('/weatherwarning', 'GET', gov_api.weather_warning_get),
+    Route('/weathernea', 'GET', gov_api.weather_nea),
 
     Include('/docs', docs_urls),
     Include('/static', static_urls)

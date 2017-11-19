@@ -36,6 +36,25 @@ def weather_get():
 
     return final[0]
 
+def weather_nea():
+    """ Get Weather Forecast from @NEAsg 
+    If date posted == Todays date
+
+    """
+    username = "@NEAsg"
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+
+    result = tweepy.API(auth).user_timeline(username, count=20)
+    final = []
+
+    for tweet in result:
+        posted_time = tweet.created_at + timedelta(hours=8)
+        if 'Issued' in tweet.text and posted_time.date() == datetime.today().date():
+            final.append(tweet.text)
+    
+    return final[0]
+
 
 def weather_warning_get():
     """ Get Weather Warning from @SGWeatherToday 
