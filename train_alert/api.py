@@ -27,7 +27,7 @@ def connect_twitter_api(provider='@SMRT_Singapore'):
     final = {}
 
     # Get latest 20 tweets from SMRT_SINGAPORE
-    result = api.user_timeline(provider, count=5)
+    result = api.user_timeline(provider, count=5, tweet_mode="extended")
 
     return result
 
@@ -43,14 +43,14 @@ def get_breakdowns(provider='@SMRT_Singapore'):
 
         # Only record the breakdowns/update
         if provider == '@SMRT_Singapore':
-            detect = '[EWL' in tweet.text or '[NSL' in tweet.text or '[CCL' in tweet.text
+            detect = '[EWL' in tweet.full_text or '[NSL' in tweet.full_text or '[CCL' in tweet.full_text
         else:
-            detect = 'SORRY' in tweet.text.upper() and ('NEL' in tweet.text.upper() or 'DTL' in tweet.text.upper())
+            detect = 'SORRY' in tweet.full_text.upper() and ('NEL' in tweet.full_text.upper() or 'DTL' in tweet.full_text.upper())
 
         if detect:
             output = {}
             created_at = (tweet.created_at + timedelta(hours=8)).strftime('%Y %b %d, at %I %M %S %p')
-            output[tweet.id_str] = {'tweet':tweet.text,
+            output[tweet.id_str] = {'tweet':tweet.full_text.split("http")[0],
                                     'created_at':created_at}
             final.update(output)
 
