@@ -3,7 +3,6 @@
 from __future__ import unicode_literals
 from datetime import datetime
 from datetime import timedelta
-import configparser
 import json
 import requests
 
@@ -37,7 +36,7 @@ def weather_get():
     return final[0]
 
 def weather_nea():
-    """ Get Weather Forecast from @NEAsg 
+    """ Get Weather Forecast from @NEAsg
     If date posted == Todays date
 
     """
@@ -52,14 +51,14 @@ def weather_nea():
         posted_time = tweet.created_at + timedelta(hours=8)
         if 'Issued' in tweet.text and posted_time.date() == datetime.today().date():
             final.append(tweet.text)
-    
+
     return final[0]
 
 
 def weather_warning_get():
-    """ Get Weather Warning from @SGWeatherToday 
+    """ Get Weather Warning from @SGWeatherToday
     If date posted == Todays date
-    
+
     """
     username = "@PUBsingapore"
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -79,20 +78,15 @@ def weather_warning_get():
         text_ = "<b>Heavy Rain Warning</b>\n"
         final_text = ""
         for _ in final:
-            _date = _.split('Issued')[1].replace("hours.","").replace(":","") + "H"
+            _date = _.split('Issued')[1].replace("hours.", "").replace(":", "") + "H"
             _ = _.split('Issued')[0]
-            _ = _.replace('NEA', '[NEA@' + _date.replace(" ","") + ']')
+            _ = _.replace('NEA', '[NEA@' + _date.replace(" ", "") + ']')
             final_text += _.split('Issued')[0] + "\n"
         return text_ + final_text.replace("#sgflood", "")
 
 
 def connnect_gov_api(url_string):
     """ Conntect to Gov and return request object """
-
-    # Set Keys from Config
-    config = configparser.ConfigParser()
-    config.sections()
-    config.read('./enviroment.ini')
 
     govt_key = config['development']['gov_api']
 
@@ -130,14 +124,15 @@ def weathernow_get():
     data = json.loads(connnect_gov_api_r.text)
 
     # Load data into Dictionary and get reading
-    forecast = data['items'][0]['general']['forecast']
+    #forecast = data['items'][0]['general']['forecast']
+    forecast = weather_nea()
     high_ = data['items'][0]['general']['temperature']['high']
     low_ = data['items'][0]['general']['temperature']['low']
 
     # Create Response
-    final_string = "In General the weather will be looking like " + forecast + \
-                    " with a high of " + str(high_) + \
-                    "°C and a low of " + str(low_) + "°C\n\n<b>Forecast Next 12 Hrs</b>\n\n"
+    final_string = forecast + \
+                    " Temperatures are expected to range from a high of " + str(high_) + \
+                    "°C to a low of " + str(low_) + "°C\n\n<b>Forecast Next 12 Hrs</b>\n\n"
 
     # Add 12 hr cast
     nowcast = data['items'][0]['periods'][0]['regions']
